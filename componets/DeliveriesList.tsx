@@ -26,6 +26,14 @@ export default function DeliveriesList({ navigation }) {
         </View >
     })
 
+    let deliveryMess;
+
+    if (deliveryCard.length == 0) {
+        deliveryMess = <Text>Inga inleveranser</Text>
+    } else {
+        deliveryMess = <Text></Text>;
+    }
+
 
 
     return (
@@ -40,8 +48,9 @@ export default function DeliveriesList({ navigation }) {
                     style={Base.btnWhite}
                 ><Text style={Base.btnTextBlack}>Skapa ny Inleverans</Text></Pressable>
                 <Text style={Typography.header3}>Historik Inleveranser</Text>
-
+                {deliveryMess}
                 {deliveryCard}
+
             </ScrollView>
 
         </SafeAreaView>
