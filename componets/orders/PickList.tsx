@@ -1,9 +1,9 @@
 import { View, Text, Button, Pressable } from "react-native";
 import { useState, useEffect } from 'react';
-import orderModel from "../models/orders";
-import productModel from "../models/products";
-import { Base } from "../styles";
-import { Typography } from "../styles";
+import orders from "../../models/orders";
+import productModel from "../../models/products";
+import { Base } from "../../styles";
+import { Typography } from "../../styles";
 
 
 export default function PickList({ route, navigation, setProducts }) {
@@ -24,7 +24,7 @@ export default function PickList({ route, navigation, setProducts }) {
 
 
     async function pick() {
-        await orderModel.pickOrder(order);
+        await orders.pickOrder(order);
         setProducts(await productModel.getProducts());
         navigation.navigate("Orders", { reload: true });
     }

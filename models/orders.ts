@@ -2,17 +2,17 @@ import config from "../config/config.json";
 import Order from "../interfaces/orders";
 import OrderItem from "../interfaces/order_item";
 import products from "./products";
+import Invoice from "../interfaces/invoice";
 
 
 let orderReq = `${config.base_url}/orders?api_key=${config.api_key}`;
+
 const orders = {
     getOrders: async function getOrders(): Promise<Order[]> {
         const response = await fetch(orderReq);
         const result = await response.json();
 
         return result.data
-
-
     },
 
     pickOrder: async function pickOrder(order: Partial<Order>) {
@@ -38,20 +38,27 @@ const orders = {
         }
 
         await orders.updateOrder(changedOrder)
-        // TODO: Minska lagersaldo för de
-        // orderrader som finns i ordern
 
-        // TODO: Ändra status för ordern till packad
     },
-    updateOrder: async function updateOrder(order: Partial<Order>) {
-        await fetch(orderReq, {
-            body: JSON.stringify(order),
+    updateOrder: async function updateOrder(ordering: Partial<Order>) {
+        await fetch(`${config.base_url}/orders`, {
+            body: JSON.stringify(ordering),
             headers: {
                 'content-type': 'application/json'
-
             },
             method: 'PUT'
         })
+            .then(function (response) {
+
+
+            });
+    },
+    getOrder: async function getOrder(order) {
+        const response = await fetch(`${config.base_url}/orders/${order}?api_key=${config.api_key}`);
+        const result = await response.json();
+
+        return result.data;
+
 
     }
 

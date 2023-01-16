@@ -1,9 +1,9 @@
 // del av components/DeliveriesList.tsx
 import { SafeAreaView, ScrollView, View, Text, Button, StyleSheet, Pressable } from "react-native";
-import { Base, Typography } from '../styles'
+import { Base, Typography } from '../../styles'
 import { useState, useEffect } from "react";
-import deliveryModel from "../models/deliveries";
-import Delivery from "../interfaces/delivery";
+import deliveryModel from "../../models/deliveries";
+import Delivery from "../../interfaces/delivery";
 
 export default function DeliveriesList({ navigation }) {
     const [deliveries, setDeliveries] = useState<Delivery[]>([]);

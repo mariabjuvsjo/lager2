@@ -1,13 +1,13 @@
 // del av components/DeliveriesList.tsx
 import { Platform, ScrollView, View, Text, TextInput, Button, Pressable } from "react-native";
-import { Base, Typography, Forms } from '../styles'
+import { Base, Typography, Forms } from '../../styles'
 import { useState, useEffect } from "react";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Picker } from '@react-native-picker/picker';
-import Delivery from "../interfaces/delivery";
-import Product from "../interfaces/products";
-import productModel from "../models/products";
-import deliveryModel from "../models/deliveries";
+import Delivery from "../../interfaces/delivery";
+import Product from "../../interfaces/products";
+import productModel from "../../models/products";
+import deliveryModel from "../../models/deliveries";
 
 
 function ProductDropDown(props) {
