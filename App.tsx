@@ -9,6 +9,9 @@ import Deliveries from './componets/deliveries/Deliveries';
 import authModel from './models/auth';
 import Auth from './componets/auth/Auth'
 import Invoices from './componets/invoices/Invoices';
+import Ship from './componets/ship/Ship'
+
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -41,7 +44,8 @@ export default function App() {
                 "Plock": "list",
                 "Inleveranser": "car",
                 'Logga in': 'lock-closed',
-                'Faktura': 'cash-outline'
+                'Faktura': 'cash-outline',
+                'Leverans': 'map-outline'
               };
 
               let inx = route.name
@@ -58,6 +62,7 @@ export default function App() {
           <Tab.Screen name="Lager" >{() => <Home products={products} setProducts={setProducts} />}
           </Tab.Screen>
           <Tab.Screen name="Plock">{() => <Pick setProducts={setProducts} />}</Tab.Screen>
+          <Tab.Screen name="Leverans">{() => <Ship />}</Tab.Screen>
           <Tab.Screen name="Inleveranser">{() => <Deliveries setProducts={setProducts} />}</Tab.Screen>
           {isLoggedIn ?
 
