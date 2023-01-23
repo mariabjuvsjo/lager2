@@ -8,6 +8,7 @@ import Delivery from "../../interfaces/delivery";
 import Product from "../../interfaces/products";
 import productModel from "../../models/products";
 import deliveryModel from "../../models/deliveries";
+import { showMessage } from "react-native-flash-message";
 
 
 function ProductDropDown(props) {
@@ -79,6 +80,43 @@ export default function DeliveryForm({ navigation, setProducts }) {
     const [currentProduct, setCurrentProduct] = useState<Partial<Product>>({});
 
     async function addDelivery() {
+
+        console.log(delivery)
+
+        if (!delivery.amount) {
+            showMessage(
+                {
+                    message: "Fel angett",
+                    description: "du måste fylla i antal",
+                    type: "warning"
+                }
+            )
+            return
+        }
+
+        if (!delivery.delivery_date) {
+            showMessage(
+                {
+                    message: "Fel angett",
+                    description: "du måste fylla i datum",
+                    type: "warning"
+                }
+            )
+            return
+        }
+
+        if (!delivery.product_id) {
+            showMessage(
+                {
+                    message: "Fel angett",
+                    description: "du måste välja produkt",
+                    type: "warning"
+                }
+            )
+            return
+        }
+
+
         await deliveryModel.addDelivery(delivery);
 
         const updatedProduct = {

@@ -45,6 +45,7 @@ export default function DeliveriesList({ navigation }) {
                     onPress={() => {
                         navigation.navigate('Form');
                     }}
+                    accessibilityHint={`Skapa ny Inleverans`}
                     style={Base.btnWhite}
                 ><Text style={Base.btnTextBlack}>Skapa ny Inleverans</Text></Pressable>
                 <Text style={Typography.header3}>Historik Inleveranser</Text>

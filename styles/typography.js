@@ -15,3 +15,4 @@ export const p = {
     color: 'white',
     marginBottom: 10
 }
+

@@ -14,6 +14,7 @@ import Ship from './componets/ship/Ship'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FlashMessage from 'react-native-flash-message';
 
 
 const Tab = createBottomTabNavigator();
@@ -75,7 +76,7 @@ export default function App() {
         </Tab.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
-
+      < FlashMessage position="top" />
     </SafeAreaView >
   );
 }
